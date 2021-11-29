@@ -4,9 +4,9 @@ module ApplicationHelper
   def full_title(page_tittle = '')
     base_title = "Ruby on Rails Tutorial Sample App"
     if page_tittle.empty?
-      return base_title
+      base_title
     else
-      return page_tittle + " | " + base_title
+      page_tittle + " | " + base_title
     end
   end
 end
