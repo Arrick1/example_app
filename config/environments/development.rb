@@ -78,3 +78,7 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 end
+
+class Application < Rails::Application
+  config.web_console.permissions = '10.0.2.2', '38.34.103.12'
+end
