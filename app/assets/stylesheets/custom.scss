@@ -1,13 +1,14 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/*mixins, variables, etc. */
+/* mixins, variables, etc. */
+
 $gray-medium-light: #eaeaea;
 
 @mixin box_sizing {
-  -moz-box-sizing:     border-box;
-  -webkit-box-sizing:  border-box;
-  box-sizing:          border-box;
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
 }
 
 /* universal */
@@ -58,26 +59,23 @@ p {
   line-height: 1.7em;
 }
 
+
 /* header */
 
 #logo {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: #white;
+  color: white;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
   &:hover {
-    color: #white;
+    color: white;
     text-decoration: none;
   }
 }
-
-// img {
-//   display: none;
-// }
 
 /* footer */
 
@@ -104,13 +102,30 @@ footer {
     }
   }
 }
+@media (max-width: 800px) {
+  footer {
+    small {
+      display: block;
+      float: none;
+      margin-bottom: 1em;
+    }
+    ul {
+      float: none;
+      padding: 0;
+      li {
+        float: none;
+        margin-left: 0;
+      }
+    }
+  }
+}
 
-/*misc*/
+/* miscellaneous */
 
 .debug_dump {
   clear: both;
   float: left;
-  width: 100;
+  width: 100%;
   margin-top: 45px;
   @include box_sizing;
 }
@@ -152,6 +167,44 @@ aside {
   margin-top: 15px;
 }
 
+.stats {
+  overflow: auto;
+  margin-top: 0;
+  padding: 0;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid $gray-lighter;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: blue;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
+.user_avatars {
+  overflow: auto;
+  margin-top: 10px;
+  .gravatar {
+    margin: 1px 1px;
+  }
+  a {
+    padding: 0;
+  }
+}
+
+.users.follow {
+  padding: 0;
+}
+
 /* forms */
 
 input, textarea, select, .uneditable-input {
@@ -165,7 +218,6 @@ input {
   height: auto !important;
 }
 
-/* forms */
 #error_explanation {
   color: red;
   ul {
@@ -178,24 +230,6 @@ input {
   @extend .has-error;
   .form-control {
     color: $state-danger-text;
-  }
-}
-
-@media (max-width: 800px) {
-  footer {
-    small {
-      display: block;
-      float: none;
-      margin-bottom: 1em;
-    }
-    ul {
-      float: none;
-      padding: 0;
-      li {
-        float: none;
-        margin-left: 0;
-      }
-    }
   }
 }
 
@@ -212,3 +246,61 @@ input {
   width: auto;
   margin-left: 0;
 }
+
+/* Users index */
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
+}
+
+/* microposts */
+
+.microposts {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .content {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .timestamp {
+    color: $gray-light;
+    display: block;
+    margin-left: 60px;
+  }
+  .gravatar {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+}
+
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+// span.image {
+//   margin-top: 10px;
+//   input {
+//     border: 0;
+//   },
